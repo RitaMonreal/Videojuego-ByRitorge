@@ -1,12 +1,10 @@
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all they need to know. The comments should usually include at least:
+HUMAN EVOLUTION WORLD THE VIDEOGAME
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE: Human Evolution World The Videogame
+PURPOSE OF PROJECT: create a new videogame to the oriented Object topic
+VERSION or DATE: version 0.0
 HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+AUTHORS: Jorge Acosta Torres and Rita Monreal García
+USER INSTRUCTIONS: we are uploading new parts of our project...
