@@ -1,8 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 public class InstructionButton extends Button
 {
-   
     public void act()
     {
         // Add your action code here.
