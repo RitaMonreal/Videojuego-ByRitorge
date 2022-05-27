@@ -6,6 +6,14 @@ public class CellCharacter extends Actor
     private static final int DOWN = 1;
     private static final int LEFT = 2;
     private static final int RIGHT = 3;
+    private static final int CHANGE_DIRECTION_UP = 3;
+    private static final int CHANGE_DIRECTION_DOWN = 3;
+    private static final int CHANGE_DIRECTION_RIGHT = 3;
+    private static final int CHANGE_DIRECTION_LEFT = 3;
+    private static final int CHANGE_ROTATION_UP = 270;
+    private static final int CHANGE_ROTATION_DOWN = 90;
+    private static final int CHANGE_ROTATION_RIGHT = 0;
+    private static final int CHANGE_ROTATION_LEFT = 180;
     
     public void act()
     {
@@ -27,20 +35,20 @@ public class CellCharacter extends Actor
     public void setNewDirection(int direction) {
         switch(direction) {
             case UP:
-                setRotation(270);
-                setLocation(getX(), getY()-1);
+                setRotation(CHANGE_ROTATION_UP);
+                setLocation(getX(), getY()-CHANGE_DIRECTION_UP);
                 break;
             case DOWN:
-                setRotation(90);
-                setLocation(getX(), getY()+1);
+                setRotation(CHANGE_ROTATION_DOWN);
+                setLocation(getX(), getY()+CHANGE_DIRECTION_DOWN);
                 break;
             case RIGHT:
-                setRotation(0);
-                setLocation(getX()+1, getY());
+                setRotation(CHANGE_ROTATION_RIGHT);
+                setLocation(getX()+CHANGE_DIRECTION_RIGHT, getY());
                 break;
             case LEFT:
-                setRotation(180);
-                setLocation(getX()-1, getY());
+                setRotation(CHANGE_ROTATION_LEFT);
+                setLocation(getX()-CHANGE_DIRECTION_LEFT, getY());
                 break;
         }
     }
