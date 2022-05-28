@@ -19,6 +19,16 @@ public class CellCharacter extends Actor
     {
         moveCell();
         touching();
+        eating();
+    }
+    
+    public void eating(){
+        Actor donut = getOneIntersectingObject(Donut.class);
+        if(donut != null)
+        {
+            getWorld().removeObject(donut);
+            General.humanPointsCount.add(1);
+        }
     }
     
     public void touching()
