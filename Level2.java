@@ -1,9 +1,8 @@
 import greenfoot.*;
 
-public class Level2 extends World
+public class Level2 extends General
 {
     public Level2()
     {
-        super(900, 500, 1); 
     }
 }

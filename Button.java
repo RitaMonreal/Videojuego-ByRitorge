@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class Button extends Actor
+public abstract class Button extends Actor
 {
     public void act()
     {
@@ -11,5 +11,11 @@ public class Button extends Actor
         }else if(Greenfoot.mouseMoved(getWorld())){
             image.setTransparency(255);
         }
+        
+        if(Greenfoot.mouseClicked(this)){
+            clicked();
+        }
     }
+    public abstract void clicked();
 }
+

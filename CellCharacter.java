@@ -18,6 +18,18 @@ public class CellCharacter extends Actor
     public void act()
     {
         moveCell();
+        touching();
+    }
+    
+    public void touching()
+    {
+        Actor virus;
+        virus = getOneIntersectingObject(VirusCharacter.class);
+        if(virus != null){
+            removeTouching(VirusCharacter.class);//Elimina al virus si lo tocas, pero te quita una vida también
+            General.humanLifeCount.add(-1);//Le resta la vida si toca al virus 
+        }
+        
     }
     
     public void moveCell() {
