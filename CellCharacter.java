@@ -18,6 +18,38 @@ public class CellCharacter extends Actor
     public void act()
     {
         moveCell();
+        touchingVirus();
+        eating();
+        nextLevel();
+    }
+    
+    public void nextLevel()
+    {
+        Actor door = getOneIntersectingObject(NextLevel1.class);
+        if(door != null){
+             Greenfoot.setWorld(new Level2());
+        }
+        
+    }
+    
+    public void eating(){
+        Actor donut = getOneIntersectingObject(Donut.class);
+        if(donut != null)
+        {
+            getWorld().removeObject(donut);
+            General.humanPointsCount.add(1);
+        }
+    }
+    
+    public void touchingVirus()
+    {
+        Actor virus;
+        virus = getOneIntersectingObject(VirusCharacter.class);
+        if(virus != null){
+            removeTouching(VirusCharacter.class);//Elimina al virus si lo tocas, pero te quita una vida también
+            General.humanLifeCount.add(-1);//Le resta la vida si toca al virus 
+        }
+        
     }
     
     public void moveCell() {

@@ -12,6 +12,7 @@ public class VirusCharacter extends Actor
         changeMovement();
     }
     
+ 
     public void changeMovement() {
         World world = getWorld();
         
