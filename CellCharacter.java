@@ -1,6 +1,6 @@
 import greenfoot.*;  
 
-public class CellCharacter extends Actor
+public class CellCharacter extends MainCharacter
 {    
     private static final int UP = 0;
     private static final int DOWN = 1;
@@ -15,24 +15,23 @@ public class CellCharacter extends Actor
     private static final int CHANGE_ROTATION_RIGHT = 0;
     private static final int CHANGE_ROTATION_LEFT = 180;
     
-    public void act()
+    public void act() 
     {
         moveCell();
-        touchingVirus();
-        eating();
+        touching();
+        gettingPoints();
         nextLevel();
     }
     
-    public void nextLevel()
+    public void nextLevel() 
     {
-        Actor door = getOneIntersectingObject(NextLevel1.class);
+        Actor door = getOneIntersectingObject(NextLevel.class);
         if(door != null){
              Greenfoot.setWorld(new Level2());
         }
-        
     }
     
-    public void eating(){
+    public void gettingPoints(){
         Actor donut = getOneIntersectingObject(Donut.class);
         if(donut != null)
         {
@@ -41,7 +40,7 @@ public class CellCharacter extends Actor
         }
     }
     
-    public void touchingVirus()
+    public void touching()
     {
         Actor virus;
         virus = getOneIntersectingObject(VirusCharacter.class);
