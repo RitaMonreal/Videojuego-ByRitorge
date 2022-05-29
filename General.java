@@ -16,5 +16,8 @@ public abstract class General extends World
         humanPointsCount.setValue(0);
     }
     
-    public abstract void NextLevelImplementation();
+    public void NextLevelImplementation()
+    {
+        addObject(new NextLevel(), 890, 250);
+    }
 }

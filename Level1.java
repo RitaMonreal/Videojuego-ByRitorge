@@ -10,11 +10,6 @@ public class Level1 extends General
         prepare();
     }
     
-    
-    public void NextLevelImplementation(){
-        addObject(new NextLevel1(), 890, 250);
-    }
-
     public void createVirus(int quantity) {
         int x, y;
 

@@ -15,17 +15,24 @@ public class CellCharacter extends Actor
     private static final int CHANGE_ROTATION_RIGHT = 0;
     private static final int CHANGE_ROTATION_LEFT = 180;
     
-    public void act()
+    public void act() 
     {
         moveCell();
         touchingVirus();
         eating();
-        nextLevel();
+        try
+        {
+            nextLevel();
+        }
+        catch (java.io.IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
     }
     
-    public void nextLevel()
+    public void nextLevel() throws java.io.IOException
     {
-        Actor door = getOneIntersectingObject(NextLevel1.class);
+        Actor door = getOneIntersectingObject(NextLevel.class);
         if(door != null){
              Greenfoot.setWorld(new Level2());
         }

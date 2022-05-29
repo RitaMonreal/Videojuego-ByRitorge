@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class NextLevel1 here.
+ * Write a description of class Fire here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class NextLevel1 extends NextLevel
+public class Fire extends Actor
 {
     /**
-     * Act - do whatever the NextLevel1 wants to do. This method is called whenever
+     * Act - do whatever the Fire wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

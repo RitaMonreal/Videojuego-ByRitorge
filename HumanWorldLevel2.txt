@@ -1,0 +1,9 @@
+FT
+XXXX	XXXXXXX
+             TT
+FFF         XXX
+XXXXXXX	     T
+F	    XXX
+XX      XXX
+	F     F
+XXXXXXXXXXXXXXX	
