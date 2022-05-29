@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=CellCharacter
+comment0.target=MainCharacter
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
@@ -8,8 +8,4 @@ comment3.params=
 comment3.target=void\ gettingPoints()
 comment4.params=
 comment4.target=void\ touching()
-comment5.params=
-comment5.target=void\ moveCell()
-comment6.params=direction
-comment6.target=void\ setNewDirection(int)
-numComments=7
+numComments=5

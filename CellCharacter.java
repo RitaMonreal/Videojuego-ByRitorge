@@ -1,6 +1,6 @@
 import greenfoot.*;  
 
-public class CellCharacter extends Actor
+public class CellCharacter extends MainCharacter
 {    
     private static final int UP = 0;
     private static final int DOWN = 1;
@@ -18,28 +18,20 @@ public class CellCharacter extends Actor
     public void act() 
     {
         moveCell();
-        touchingVirus();
-        eating();
-        try
-        {
-            nextLevel();
-        }
-        catch (java.io.IOException ioe)
-        {
-            ioe.printStackTrace();
-        }
+        touching();
+        gettingPoints();
+        nextLevel();
     }
     
-    public void nextLevel() throws java.io.IOException
+    public void nextLevel() 
     {
         Actor door = getOneIntersectingObject(NextLevel.class);
         if(door != null){
              Greenfoot.setWorld(new Level2());
         }
-        
     }
     
-    public void eating(){
+    public void gettingPoints(){
         Actor donut = getOneIntersectingObject(Donut.class);
         if(donut != null)
         {
@@ -48,7 +40,7 @@ public class CellCharacter extends Actor
         }
     }
     
-    public void touchingVirus()
+    public void touching()
     {
         Actor virus;
         virus = getOneIntersectingObject(VirusCharacter.class);

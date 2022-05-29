@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Level2
 comment1.params=
-comment1.target=Level2()
-comment2.params=floorWidth\ floorHeight\ floorMarker\ fireMarker\ toolMarker\ mapArray
-comment2.target=void\ drawFloorMap(int,\ int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String[][])
-comment3.params=mapWidth\ mapHeight\ fileName
-comment3.target=java.lang.String[][]\ readMap(int,\ int,\ java.lang.String)
-numComments=4
+comment1.target=void\ prepare()
+comment1.text=\r\n\ \ \ \ private\ static\ final\ int\ WIDTH_FLOOR\ \=\ 50;\r\nprivate\ static\ final\ int\ HEIGHT_FLOOR\ \=\ 50;
+comment2.params=
+comment2.target=Level2()
+comment2.text=private\ final\ int\ WORLDWIDTH\ \=\ getWidth();\r\n\ \ \ \ private\ final\ int\ WORLDHEIGHT\ \=\ getHeight();\r\n\r\n\ \ \ \ Floor\ floorTemplate\ \=\ new\ Floor();\r\n\ \ \ \ GreenfootImage\ frImg\ \=\ floorTemplate.getImage();\r\n\ \ \ \ private\ final\ int\ FLOORHEIGHT\ \=\ frImg.getHeight();\r\n\ \ \ \ private\ final\ int\ FLOORWIDTH\ \=\ frImg.getWidth();\r\n\r\n\ \ \ \ private\ final\ int\ MAPWIDTH\ \=\ (int)\ (WORLDWIDTH/FLOORWIDTH);\r\n\ \ \ \ private\ final\ int\ MAPHEIGHT\ \=\ (int)\ (WORLDHEIGHT/FLOORHEIGHT);\r\n\r\n\ \ \ \ private\ final\ String\ FILENAME\ \=\ "HumanWorldLevel2.txt";\r\n\ \ \ \ private\ final\ String\ FLOORMARKER\ \=\ "X";\r\n\ \ \ \ private\ final\ String\ FIREMARKER\ \=\ "F";\r\n\ \ \ \ private\ final\ String\ TOOLMARKER\ \=\ "T";\r\nString[][]\ mapArray\ \=\ new\ String[MAPHEIGHT][MAPWIDTH];
+numComments=3
