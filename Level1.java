@@ -12,7 +12,7 @@ public class Level1 extends General
     
     
     public void NextLevelImplementation(){
-        addObject(new NextLevel1(), 890, 250);
+        addObject(new NextLevel(), 890, 250);
     }
 
     public void createVirus(int quantity) {
