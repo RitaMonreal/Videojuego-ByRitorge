@@ -5,11 +5,27 @@ public abstract class MainCharacter extends Actor
 
     public void act()
     {
-        // Add your action code here.
+        
     }
     
     public abstract void nextLevel();
-    public abstract void gettingPoints();
-    public abstract void touching();
+    public abstract void movement();//Mueve al personaje
     
+    public void gettingPoints(){//Trabaja con los items
+        Actor item = getOneIntersectingObject(Items.class);
+        if(item != null)
+        {
+            getWorld().removeObject(item);
+            General.humanPointsCount.add(7);
+        }
+    }
+    
+    public  void touching(){//Trabaja con los malos
+        Actor evil;
+        evil = getOneIntersectingObject(EvilCharacters.class);
+        if(evil != null){
+            removeTouching(EvilCharacters.class);
+            General.humanLifeCount.add(-1);//Le resta la vida si toca al coso malo
+        }
+    }
 }

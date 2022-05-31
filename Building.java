@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Building_3 extends Building
+//Comentario de prueba Rita :))
+public class Building extends Actor
 {
     
     public void act()

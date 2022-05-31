@@ -2,7 +2,6 @@
 comment0.target=Level2
 comment1.params=
 comment1.target=void\ NextLevelImplementation()
-comment1.text=\r\n\ \ \ \ private\ static\ final\ int\ WIDTH_FLOOR\ \=\ 50;\r\nprivate\ static\ final\ int\ HEIGHT_FLOOR\ \=\ 50;
 comment2.params=
 comment2.target=void\ prepare()
 comment3.params=

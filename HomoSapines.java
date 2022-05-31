@@ -8,33 +8,37 @@ public class HomoSapines extends MainCharacter
     int xPos;
     int yPos;
     
-    public void addedToWorld(World level2){
-        xPos = getX();
-        yPos = getY();
+    public void act()
+    {
+        movement();
+        animateOnMove();
+        nextLevel();
+        gettingLifes();
+        touching();
+        gettingPoints();
     }
     
+    @Override
     public void touching()
     {
         Actor floor;
         floor = getOneIntersectingObject(Ground.class);
         if(floor != null){
-            General.humanLifeCount.add(-1);//Le resta la vida si toca al virus 
+            General.humanLifeCount.add(-1);
         }
     }
     
-    public void gettingPoints(){
+    public void addedToWorld(World level2){
+        xPos = getX();
+        yPos = getY();
+    }
+    
+    public void gettingLifes(){
         Actor fire = getOneIntersectingObject(Fire.class);
-        Actor tool = getOneIntersectingObject(Tool.class);
         if(fire != null)
         {
             getWorld().removeObject(fire);
             General.humanLifeCount.add(5);
-        }
-        
-        if(tool != null)
-        {
-            getWorld().removeObject(tool);
-            General.humanPointsCount.add(10);
         }
     }
     
@@ -46,8 +50,7 @@ public class HomoSapines extends MainCharacter
         }
     }
         
-    public void act()
-    {
+    public void movement(){
         if(Greenfoot.isKeyDown("up"))
         {
             setLocation(getX(),getY()-2);
@@ -64,11 +67,8 @@ public class HomoSapines extends MainCharacter
         {
             setLocation(getX()+2,getY());
         }
-        animateOnMove();
-        nextLevel();
-        touching();
-        gettingPoints();
     }
+    
     private void animateOnMove()
     {
         if(getX()!=xPos||getY()!=yPos)

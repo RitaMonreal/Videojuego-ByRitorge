@@ -4,10 +4,7 @@ import java.util.List;
 
 public class Level2 extends General
 {
-    /*
-    private static final int WIDTH_FLOOR = 50;
-    private static final int HEIGHT_FLOOR = 50;*/
-    
+   
     public void NextLevelImplementation(){
         addObject(new NextLevel(), 890, 250);
     }

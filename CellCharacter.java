@@ -17,10 +17,10 @@ public class CellCharacter extends MainCharacter
     
     public void act() 
     {
-        moveCell();
-        touching();
-        gettingPoints();
+        movement();
         nextLevel();
+        gettingPoints();
+        touching();
     }
     
     public void nextLevel() 
@@ -31,27 +31,7 @@ public class CellCharacter extends MainCharacter
         }
     }
     
-    public void gettingPoints(){
-        Actor donut = getOneIntersectingObject(Donut.class);
-        if(donut != null)
-        {
-            getWorld().removeObject(donut);
-            General.humanPointsCount.add(1);
-        }
-    }
-    
-    public void touching()
-    {
-        Actor virus;
-        virus = getOneIntersectingObject(VirusCharacter.class);
-        if(virus != null){
-            removeTouching(VirusCharacter.class);//Elimina al virus si lo tocas, pero te quita una vida también
-            General.humanLifeCount.add(-1);//Le resta la vida si toca al virus 
-        }
-        
-    }
-    
-    public void moveCell() {
+    public void movement() {
         if(Greenfoot.isKeyDown("UP")) {
             setNewDirection(UP);
         } else if(Greenfoot.isKeyDown("DOWN")) {

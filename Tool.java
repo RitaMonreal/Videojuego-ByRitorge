@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Tool extends Actor
+public class Tool extends Items
 {
 
     public void act()
