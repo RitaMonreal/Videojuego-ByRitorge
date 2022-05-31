@@ -13,6 +13,7 @@ public class Human extends MainCharacter
         nextLevel();
         touching();
         gettingPoints();
+        stopGame();
     }
     
     private void fall(){//Aumenta la velocidad
@@ -51,7 +52,7 @@ public class Human extends MainCharacter
     {
         Actor door = getOneIntersectingObject(NextLevel.class);
         if(door != null){
-             Greenfoot.setWorld(new Level3());
+             Greenfoot.setWorld(new WinPage());
         }
     }
 }

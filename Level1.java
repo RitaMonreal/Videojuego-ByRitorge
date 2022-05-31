@@ -26,7 +26,6 @@ public class Level1 extends General
         }
     }
     
-
     private void prepare()
     {
         addObject(new Donut(),109,64);

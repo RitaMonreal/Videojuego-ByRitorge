@@ -21,6 +21,7 @@ public class CellCharacter extends MainCharacter
         nextLevel();
         gettingPoints();
         touching();
+        stopGame();
     }
     
     public void nextLevel() 

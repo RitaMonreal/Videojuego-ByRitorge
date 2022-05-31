@@ -2,12 +2,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public abstract class MainCharacter extends Actor
 {
-
-    public void act()
-    {
-        
-    }
-    
     public abstract void nextLevel();
     public abstract void movement();//Mueve al personaje
     
@@ -17,6 +11,12 @@ public abstract class MainCharacter extends Actor
         {
             getWorld().removeObject(item);
             General.humanPointsCount.add(7);
+        }
+    }
+    
+     public void stopGame(){
+        if (General.humanLifeCount.getValue()==0){
+            Greenfoot.setWorld(new GameOverPage());
         }
     }
     

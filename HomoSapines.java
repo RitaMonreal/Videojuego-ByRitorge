@@ -16,6 +16,7 @@ public class HomoSapines extends MainCharacter
         gettingLifes();
         touching();
         gettingPoints();
+        stopGame();
     }
     
     @Override
