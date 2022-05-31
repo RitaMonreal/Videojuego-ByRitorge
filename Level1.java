@@ -9,10 +9,9 @@ public class Level1 extends General
         createVirus(15);        
         prepare();
     }
-    
-    
+        
     public void NextLevelImplementation(){
-        addObject(new NextLevel1(), 890, 250);
+        addObject(new NextLevel(), 890, 250);
     }
 
     public void createVirus(int quantity) {
@@ -26,10 +25,6 @@ public class Level1 extends General
         }
     }
     
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         addObject(new Donut(),109,64);
