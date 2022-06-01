@@ -15,7 +15,6 @@ public abstract class General extends World
         addObject(new Star(), 700, 55);
         humanPointsCount.setValue(0);
         addObject(new MenuButton(),90,20);
-        addObject(new Information(), 160, 20);
     }
     public abstract void NextLevelImplementation();
 }

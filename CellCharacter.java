@@ -28,7 +28,7 @@ public class CellCharacter extends MainCharacter
     {
         Actor door = getOneIntersectingObject(NextLevel.class);
         if(door != null){
-             Greenfoot.setWorld(new Level2());
+             Greenfoot.setWorld(new InstructionsLevel2Page());
         }
     }
     

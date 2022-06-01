@@ -1,20 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class InstructionsLevel1Page here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class InstructionsLevel1Page extends SupportPages
-{
 
-    /**
-     * Constructor for objects of class InstructionsLevel1Page.
-     * 
-     */
+public class InstructionsLevel1Page extends InstructionPages
+{
     public InstructionsLevel1Page()
     {
-        addObject(new MenuButton(), 800, 475);
+        addObject(new StartGame("InstructionsLevel1Page"),836,476);
     }
+    
 }

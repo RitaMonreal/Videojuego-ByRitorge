@@ -4,6 +4,6 @@ public class StartButton extends Button
 {
     
     public void clicked(){
-        Greenfoot.setWorld(new Level1());
+        Greenfoot.setWorld(new InstructionsLevel1Page());
     }
 }
