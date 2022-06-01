@@ -5,7 +5,7 @@ public class Level1 extends General
     public Level1()
     {
         NextLevelImplementation();
-        addObject (new CellCharacter(),450,150);
+        addObject (new CellCharacter(),getWidth()/2,getHeight()/2);
         createVirus(15);        
         prepare();
     }

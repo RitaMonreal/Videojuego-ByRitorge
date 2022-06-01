@@ -1,7 +1,8 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
 
 public class GameOverPage extends SupportPages
 {
+    private GreenfootSound gameOverSound = new GreenfootSound("GameOverSound.mp3");
 
     public GameOverPage()
     {    
@@ -12,6 +13,8 @@ public class GameOverPage extends SupportPages
     private void prepare()
     {
         addObject(new GameOver(),450,200);
+        gameOverSound.play();
+        gameOverSound.setVolume(40);
     }
 }
 

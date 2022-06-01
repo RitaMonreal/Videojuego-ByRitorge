@@ -1,7 +1,6 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-//Comentario de prueba Rita :))
+import greenfoot.*;
+
 public class Building extends Actor
 {
     
 }
-

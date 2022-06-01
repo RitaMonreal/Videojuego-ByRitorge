@@ -1,7 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 public class MenuButton extends Button
-{
+{    
     public void clicked(){
         Greenfoot.setWorld(new Menu());
     }

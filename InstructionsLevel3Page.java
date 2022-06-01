@@ -1,19 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
-/**
- * Write a description of class InstructionsLevel3Page here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class InstructionsLevel3Page extends SupportPages
 {
-
-    /**
-     * Constructor for objects of class InstructionsLevel3Page.
-     * 
-     */
     public InstructionsLevel3Page()
     {
+        addObject(new MenuButton(), 800, 475);
     }
 }

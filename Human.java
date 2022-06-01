@@ -1,7 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 public class Human extends MainCharacter
 {
+    private GreenfootSound itemSound = new GreenfootSound("ItemSound.mp3");
+    private GreenfootSound jumpSound = new GreenfootSound("JumpSound.mp3");
+    private static final int MOVE = 4;
     private int velocidadIn = 0;
     private int aceleracion = 1;
     private int alturaSalto = -8;
@@ -16,26 +19,29 @@ public class Human extends MainCharacter
         stopGame();
     }
     
-    private void fall(){//Aumenta la velocidad
+    private void fall(){
         setLocation(getX(), getY() + velocidadIn);
         velocidadIn = velocidadIn + aceleracion;
     }
     
-    public void movement(){//Mueve a los lados
+    public void movement(){
         if(Greenfoot.isKeyDown("right")){
-            move(4);
+            move(MOVE);
         }
+        
         if(Greenfoot.isKeyDown("left")){
-            move(-4);
+            move(-MOVE);
         }
+        
         if(Greenfoot.isKeyDown("space")){
+            jumpSound.play();
             velocidadIn = alturaSalto;
             fall();
         }
     }
     
-    public boolean onBuilding(){//Checa si hay algo debajo de él
-        Actor abajo = getOneObjectAtOffset(0, getImage().getHeight()/2, Building.class);//offset es el punto medio del objeto
+    public boolean onBuilding(){
+        Actor abajo = getOneObjectAtOffset(0, getImage().getHeight()/2, Building.class);
         return abajo != null;
     }
     
@@ -43,6 +49,7 @@ public class Human extends MainCharacter
         if(onBuilding() == false){
             fall();
         }
+        
         if(onBuilding() == true){
             velocidadIn = 0;
         }
@@ -51,8 +58,10 @@ public class Human extends MainCharacter
      public void nextLevel() 
     {
         Actor door = getOneIntersectingObject(NextLevel.class);
+        
         if(door != null){
              Greenfoot.setWorld(new WinPage());
+             itemSound.play();
         }
     }
 }

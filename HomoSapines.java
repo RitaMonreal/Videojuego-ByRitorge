@@ -1,7 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 public class HomoSapines extends MainCharacter
 {
+    private GreenfootSound itemSound = new GreenfootSound("ItemSound.mp3");
+    private GreenfootSound extraLife = new GreenfootSound("ExtraLife.mp3");
+    private static final int CHANGE_DIRECTION = 2;
     private GreenfootImage myImage = getImage();
     private String[] imageNames = {"Simio_1.png", "Simio_2.png","Simio_3.png", "Simio_4.png"};
     private int currentImage = 0;
@@ -22,8 +25,8 @@ public class HomoSapines extends MainCharacter
     @Override
     public void touching()
     {
-        Actor floor;
-        floor = getOneIntersectingObject(Ground.class);
+        Actor floor = getOneIntersectingObject(Ground.class);
+        
         if(floor != null){
             General.humanLifeCount.add(-1);
         }
@@ -36,59 +39,60 @@ public class HomoSapines extends MainCharacter
     
     public void gettingLifes(){
         Actor fire = getOneIntersectingObject(Fire.class);
+        
         if(fire != null)
         {
             getWorld().removeObject(fire);
             General.humanLifeCount.add(5);
+            extraLife.play();
+            extraLife.setVolume(30);
         }
     }
     
     public void nextLevel() 
     {
         Actor door = getOneIntersectingObject(NextLevel.class);
+        
         if(door != null){
              Greenfoot.setWorld(new Level3());
+             itemSound.play();
         }
     }
-        
+    
     public void movement(){
-        if(Greenfoot.isKeyDown("up"))
-        {
-            setLocation(getX(),getY()-2);
+        if(Greenfoot.isKeyDown("up")) {
+            setLocation(getX(),getY() - CHANGE_DIRECTION);
         }
-        if(Greenfoot.isKeyDown("down"))
-        {
-            setLocation(getX(),getY()+2);
+        if(Greenfoot.isKeyDown("down")) {
+            setLocation(getX(),getY() + CHANGE_DIRECTION);
         }
-        if(Greenfoot.isKeyDown("left"))
-        {
-            setLocation(getX()-2,getY());
+        if(Greenfoot.isKeyDown("left")) {
+            setLocation(getX() - CHANGE_DIRECTION,getY());
         }
-        if(Greenfoot.isKeyDown("right"))
-        {
-            setLocation(getX()+2,getY());
+        if(Greenfoot.isKeyDown("right")) {
+            setLocation(getX() + CHANGE_DIRECTION,getY());
         }
     }
     
     private void animateOnMove()
     {
-        if(getX()!=xPos||getY()!=yPos)
-        {
+        if(getX() != xPos || getY() != yPos) {
             currentImage++;
+            
             if(currentImage >= imageNames.length){
                 currentImage = 0;
             }
             
             GreenfootImage newImage = new GreenfootImage(imageNames[currentImage]);
             
-            if(getX()<xPos)
-            {
+            if(getX()<xPos) {
                 newImage.mirrorHorizontally();
             }
             
             setImage(newImage);
             myImage = getImage();
         }
+        
         xPos = getX();
         yPos = getY();
     }

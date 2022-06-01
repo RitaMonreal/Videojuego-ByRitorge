@@ -4,6 +4,7 @@ public abstract class General extends World
 {
     public static Counter humanLifeCount = new Counter("Health: ");
     public static Counter humanPointsCount = new Counter("Points: ");
+    
     public General()
     {    
         super(900, 500, 1); 
@@ -17,5 +18,6 @@ public abstract class General extends World
         addObject(new MenuButton(),90,20);
         addObject(new Information(), 160, 20);
     }
+    
     public abstract void NextLevelImplementation();
 }

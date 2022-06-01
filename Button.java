@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 public abstract class Button extends Actor
-{
+{    
     public void act()
     {
         GreenfootImage image = getImage();
@@ -16,5 +16,6 @@ public abstract class Button extends Actor
             clicked();
         }
     }
+    
     public abstract void clicked();
 }

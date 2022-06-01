@@ -1,9 +1,7 @@
 import greenfoot.*; 
 
-
 public abstract class SupportPages extends World
 {
-
     public SupportPages()
     {    
         super(900, 500, 1); 

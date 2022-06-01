@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.io.*;
 import java.util.List;
 
@@ -22,10 +22,10 @@ public class Level2 extends General
         addObject(new Ground(),754,488);
         addObject(new Ground(),882,488);
         addObject(new Ground(),420,340);
-        addObject(new Ground(),790,420);//nivel 1 3
-        addObject(new Ground(),110,170);//Ultimo izquierda
+        addObject(new Ground(),790,420);
+        addObject(new Ground(),110,170);
         addObject(new Ground(),315,170);
-        addObject(new Ground(),635,274);//El que está antes de caer
+        addObject(new Ground(),635,274);
         addObject(new Ground(),230,386);
         addObject(new HomoSapines(),50,350);
        

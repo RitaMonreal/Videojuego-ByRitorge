@@ -1,11 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 public class FinalEdit extends World
 {
 
     public FinalEdit()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(292, 283, 1); 
         prepare();
     }

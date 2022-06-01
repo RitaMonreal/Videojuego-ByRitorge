@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,10 +35,10 @@ public class GifImage
     public GifImage(String file)
     {
         pause = false;
+        
         if(file.toLowerCase().endsWith(".gif")) {
             loadImages(file);
-        }
-        else {
+        } else {
             images = new GreenfootImage[] {new GreenfootImage(file)};
             delay = new int[] {1000}; // Doesn't matter, as long as it's not zero
             currentIndex = 0;
@@ -72,9 +72,11 @@ public class GifImage
     public List<GreenfootImage> getImages()
     {
         ArrayList<GreenfootImage> images = new ArrayList<GreenfootImage>(this.images.length);
+        
         for(GreenfootImage image : this.images) {
             images.add(image);
         }
+        
         return images;
     }
 
@@ -113,6 +115,7 @@ public class GifImage
             time += delay[currentIndex];
             currentIndex = (currentIndex+1) % images.length;
         }
+        
         return images[currentIndex];
     }
 
@@ -124,11 +127,11 @@ public class GifImage
         GifDecoder decode = new GifDecoder();
         decode.read(file);
         int numFrames = decode.getFrameCount();
+        
         if(numFrames>0) {
             images = new GreenfootImage[numFrames];
             delay = new int[numFrames];
-        }
-        else {
+        } else {
             images = new GreenfootImage[1];
             images[0] = new GreenfootImage(1, 1);
         }
@@ -139,6 +142,7 @@ public class GifImage
             delay[i] = decode.getDelay(i);
             images[i] = image;
         }
+        
         time = System.currentTimeMillis();
     }
 
@@ -303,6 +307,7 @@ public class GifImage
             int r = (rgb & 0xFF0000) >> 16;
             int g = (rgb & 0xFF00) >> 8;
             int b = (rgb & 0xFF);
+            
             return new Color(r,g,b);
         }
         
@@ -316,9 +321,11 @@ public class GifImage
         public int getDelay(int n) {
             //
             delay = -1;
+            
             if ((n >= 0) && (n < frameCount)) {
                 delay = (frames.get(n)).delay;
             }
+        
             return delay;
         }
 
@@ -360,6 +367,7 @@ public class GifImage
                 if (lastDispose == 3) {
                     // use image before last
                     int n = frameCount - 2;
+                    
                     if (n > 0) {
                         lastImage = getFrame(n - 1);
                     } else {
@@ -376,11 +384,13 @@ public class GifImage
                     if (lastDispose == 2) {
                         // fill last image rect area with background color
                         Color c = null;
+                        
                         if (transparency) {
                             c = new Color(0, 0, 0, 0); // assume background is transparent
                         } else {
                             c = lastBgColor; // use given background color
                         }
+                        
                         for (int x = 0; x < lastRect.width; x++)
                         {
                             for (int y = 0; y < lastRect.height; y++)
@@ -396,11 +406,14 @@ public class GifImage
             int pass = 1;
             int inc = 8;
             int iline = 0;
+            
             for (int i = 0; i < ih; i++) {
                 int line = i;
+                
                 if (interlace) {
                     if (iline >= ih) {
                         pass++;
+                        
                         switch (pass) {
                         case 2:
                             iline = 4;
@@ -414,10 +427,13 @@ public class GifImage
                             inc = 2;
                         }
                     }
+                    
                     line = iline;
                     iline += inc;
                 }
+                
                 line += iy;
+                
                 if (line < height) {
                     int k = line * width;
                     int dlim = Math.min(ix + iw, width);
@@ -426,6 +442,7 @@ public class GifImage
                     for (int dx = ix; dx < dlim; dx++) {
                         int index = ((int) pixels[sx++]) & 0xff;
                         int c = act[index];
+                        
                         if (c != 0) {
                             image.setColorAt(dx, line, colorFromInt(c));
                         }
@@ -441,6 +458,7 @@ public class GifImage
          */
         public GreenfootImage getFrame(int n) {
             GreenfootImage im = null;
+            
             if ((n >= 0) && (n < frameCount)) {
                 im = ((GifFrame) frames.get(n)).image;
             }
@@ -465,11 +483,14 @@ public class GifImage
          */
         public int read(BufferedInputStream is) {
             init();
+            
             if (is != null) {
                 in = is;
                 readHeader();
+                
                 if (!err()) {
                     readContents();
+                    
                     if (frameCount < 0) {
                         status = STATUS_FORMAT_ERROR;
                     }
@@ -477,10 +498,12 @@ public class GifImage
             } else {
                 status = STATUS_OPEN_ERROR;
             }
+            
             try {
                 is.close();
             } catch (IOException e) {
             }
+            
             return status;
         }
 
@@ -493,13 +516,16 @@ public class GifImage
          */
         public int read(InputStream is) {
             init();
+            
             if (is != null) {
                 if (!(is instanceof BufferedInputStream))
                     is = new BufferedInputStream(is);
                 in = (BufferedInputStream) is;
                 readHeader();
+                
                 if (!err()) {
                     readContents();
+                    
                     if (frameCount < 0) {
                         status = STATUS_FORMAT_ERROR;
                     }
@@ -507,10 +533,12 @@ public class GifImage
             } else {
                 status = STATUS_OPEN_ERROR;
             }
+            
             try {
                 is.close();
             } catch (IOException e) {
             }
+            
             return status;
         }
 
@@ -525,13 +553,16 @@ public class GifImage
         public int read(String name) {
             status = STATUS_OK;
             InputStream resource = this.getClass().getResourceAsStream(name);
+            
             if (resource == null) {
                 name = "images/" + name;
                 resource = this.getClass().getResourceAsStream(name);
+                
                 if (resource == null) {
                     throw new RuntimeException("The gif file \"" + name + "\" doesn't exist.");
                 }
             }
+            
             in = new BufferedInputStream(resource);
             status = read(in);
 
@@ -550,10 +581,13 @@ public class GifImage
             if ((pixels == null) || (pixels.length < npix)) {
                 pixels = new byte[npix]; // allocate new pixel array
             }
+            
             if (prefix == null)
                 prefix = new short[MaxStackSize];
+                
             if (suffix == null)
                 suffix = new byte[MaxStackSize];
+                
             if (pixelStack == null)
                 pixelStack = new byte[MaxStackSize + 1];
 
@@ -566,6 +600,7 @@ public class GifImage
             old_code = NullCode;
             code_size = data_size + 1;
             code_mask = (1 << code_size) - 1;
+            
             for (code = 0; code < clear; code++) {
                 prefix[code] = 0;
                 suffix[code] = (byte) code;
@@ -582,10 +617,13 @@ public class GifImage
                         if (count == 0) {
                             // Read a new data block.
                             count = readBlock();
+                            
                             if (count <= 0)
                                 break;
+                                
                             bi = 0;
                         }
+                        
                         datum += (((int) block[bi]) & 0xff) << bits;
                         bits += 8;
                         bi++;
@@ -603,6 +641,7 @@ public class GifImage
 
                         if ((code > available) || (code == end_of_information))
                             break;
+                            
                         if (code == clear) {
                             // Reset decoder.
                             code_size = data_size + 1;
@@ -611,35 +650,43 @@ public class GifImage
                             old_code = NullCode;
                             continue;
                         }
+                        
                         if (old_code == NullCode) {
                             pixelStack[top++] = suffix[code];
                             old_code = code;
                             first = code;
                             continue;
                         }
+                        
                         in_code = code;
+                        
                         if (code == available) {
                             pixelStack[top++] = (byte) first;
                             code = old_code;
                         }
+                        
                         while (code > clear) {
                             pixelStack[top++] = suffix[code];
                             code = prefix[code];
                         }
+                        
                         first = ((int) suffix[code]) & 0xff;
 
                         // Add a new string to the string table,
 
                         if (available >= MaxStackSize)
                             break;
+                            
                         pixelStack[top++] = (byte) first;
                         prefix[available] = (short) old_code;
                         suffix[available] = (byte) first;
                         available++;
+                        
                         if (((available & code_mask) == 0) && (available < MaxStackSize)) {
                             code_size++;
                             code_mask += available;
                         }
+                        
                         old_code = in_code;
                 }
 
@@ -679,11 +726,13 @@ public class GifImage
          */
         protected int read() {
             int curByte = 0;
+            
             try {
                 curByte = in.read();
             } catch (IOException e) {
                 status = STATUS_FORMAT_ERROR;
             }
+            
             return curByte;
         }
 
@@ -695,6 +744,7 @@ public class GifImage
         protected int readBlock() {
             blockSize = read();
             int n = 0;
+            
             if (blockSize > 0) {
                 try {
                     int count = 0;

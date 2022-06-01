@@ -1,31 +1,39 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 public abstract class MainCharacter extends Actor
 {
-    public abstract void nextLevel();
-    public abstract void movement();//Mueve al personaje
+    private GreenfootSound itemSound = new GreenfootSound("ItemSound.mp3");
+    private GreenfootSound deathSound = new GreenfootSound("DeathSound.mp3");
     
-    public void gettingPoints(){//Trabaja con los items
+    public abstract void nextLevel();
+    
+    public abstract void movement();
+    
+    public void gettingPoints(){
         Actor item = getOneIntersectingObject(Items.class);
+        
         if(item != null)
         {
             getWorld().removeObject(item);
             General.humanPointsCount.add(7);
+            itemSound.play();
         }
     }
     
      public void stopGame(){
-        if (General.humanLifeCount.getValue()==0){
+        if (General.humanLifeCount.getValue() == 0){
+            deathSound.play();
+            deathSound.setVolume(20);
             Greenfoot.setWorld(new GameOverPage());
         }
     }
     
-    public  void touching(){//Trabaja con los malos
-        Actor evil;
-        evil = getOneIntersectingObject(EvilCharacters.class);
+    public  void touching(){
+        Actor evil = getOneIntersectingObject(EvilCharacters.class);
+        
         if(evil != null){
             removeTouching(EvilCharacters.class);
-            General.humanLifeCount.add(-1);//Le resta la vida si toca al coso malo
+            General.humanLifeCount.add(-1);
         }
     }
 }

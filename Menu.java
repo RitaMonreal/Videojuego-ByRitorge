@@ -8,6 +8,5 @@ public class Menu extends World
         addObject (new StartButton(),450,150);
         addObject (new ScoreButton(),450,250);
         addObject (new InstructionButton(),450, 350);
-       
     }
 }
