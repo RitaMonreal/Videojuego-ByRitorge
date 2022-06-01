@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 public class Information extends Button
 {
-    
     public void clicked(){
-        Greenfoot.setWorld(new ScorePage());//Hace falta hacer la página de instruccions
+        Greenfoot.setWorld(new InstructionsLevel1Page());
     }
 }
 

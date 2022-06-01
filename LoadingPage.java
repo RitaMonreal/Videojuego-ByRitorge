@@ -11,7 +11,7 @@ public class LoadingPage extends SupportPages
     
     private void prepare()
     {
-        addObject( new Loading(),250,140);
+        addObject( new Loading(),450,250);
     }
 }
 

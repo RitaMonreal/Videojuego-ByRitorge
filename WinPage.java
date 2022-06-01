@@ -5,7 +5,7 @@ public class WinPage extends SupportPages
 
     public WinPage()
     {    
-        addObject(new Next(),442,264);  
+        addObject(new Next(),600,350);  
     }
 }
 
