@@ -23,7 +23,7 @@ public class Level3 extends General
         addObject(new Building_2(),809,412);
 
         addObject(new Human(),27,189);
-        
+
         addObject(new Book(),451,224);
         addObject(new Book(),573,305);
         addObject(new Book(),661,345);
@@ -31,7 +31,7 @@ public class Level3 extends General
         addObject(new Book(),196,303);
         addObject(new Book(),611,307);
         addObject(new Book(),254,38);
-    
+
         addObject(new Brain(),706,346);
         addObject(new Brain(),745,344);
         addObject(new Brain(),495,228);
