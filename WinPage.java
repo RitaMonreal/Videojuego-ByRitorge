@@ -6,7 +6,7 @@ public class WinPage extends SupportPages
 
     public WinPage()
     {    
-        addObject(new Next(),600,350);  
+        addObject(new Next(),442,264);   
         victorySound.play();
         victorySound.setVolume(40);
     }

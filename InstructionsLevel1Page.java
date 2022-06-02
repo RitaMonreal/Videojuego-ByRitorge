@@ -1,9 +1,11 @@
-import greenfoot.*;  
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class InstructionsLevel1Page extends SupportPages
+
+public class InstructionsLevel1Page extends InstructionPages
 {
     public InstructionsLevel1Page()
     {
-        addObject(new MenuButton(), 800, 475);
+        addObject(new StartGame("InstructionsLevel1Page"),836,476);
     }
+    
 }

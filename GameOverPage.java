@@ -12,9 +12,12 @@ public class GameOverPage extends SupportPages
 
     private void prepare()
     {
-        addObject(new GameOver(),450,200);
+        addObject(new GameOver(),250,166);
         gameOverSound.play();
         gameOverSound.setVolume(40);
     }
 }
+
+ 
+
 

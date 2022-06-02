@@ -2,6 +2,7 @@ import greenfoot.*;
 
 public class Level1 extends General
 {
+     
     public Level1()
     {
         NextLevelImplementation();
@@ -34,5 +35,8 @@ public class Level1 extends General
         addObject(new Donut(),864,80);
         addObject(new Donut(),860,477);
         addObject(new Donut(),30,290);
+        
+        humanLifeCount.setValue(10);
+        humanPointsCount.setValue(0);
     }
 }

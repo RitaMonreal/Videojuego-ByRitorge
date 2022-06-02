@@ -21,7 +21,7 @@ public abstract class MainCharacter extends Actor
     }
     
      public void stopGame(){
-        if (General.humanLifeCount.getValue() == 0){
+        if (General.humanLifeCount.getValue() <= 0){
             deathSound.play();
             deathSound.setVolume(20);
             Greenfoot.setWorld(new GameOverPage());
