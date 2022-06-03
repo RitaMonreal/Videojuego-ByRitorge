@@ -16,7 +16,7 @@ public class LoadingPage extends SupportPages
     }
     
     public void act() {
-        loadingSound.play();
+        loadingSound.playLoop();
         loadingSound.setVolume(20);
     }
 }

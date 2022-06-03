@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=RecordsManager
+comment1.params=name\ score
+comment1.target=void\ save(java.lang.String,\ int)
+comment2.params=
+comment2.target=java.util.List\ getRecords()
+numComments=3

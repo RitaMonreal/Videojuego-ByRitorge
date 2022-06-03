@@ -60,8 +60,11 @@ public class Human extends MainCharacter
         Actor door = getOneIntersectingObject(NextLevel.class);
         
         if(door != null){
-             Greenfoot.setWorld(new WinPage());
-             itemSound.play();
+            String name = Greenfoot.ask("Enter your name: ");
+            RecordsManager.save(name, General.humanPointsCount.getValue());
+             
+            Greenfoot.setWorld(new WinPage());
+            itemSound.play();
         }
     }
 }

@@ -24,6 +24,10 @@ public abstract class MainCharacter extends Actor
         if (General.humanLifeCount.getValue() <= 0){
             deathSound.play();
             deathSound.setVolume(20);
+            
+            String name = Greenfoot.ask("Enter your name: ");
+            RecordsManager.save(name, General.humanPointsCount.getValue());
+            
             Greenfoot.setWorld(new GameOverPage());
         }
     }
